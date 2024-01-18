@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-/*char **token NULL;*/
+char **token = NULL;
 /**
  * main - main entry
  * @argc: number of arguments
@@ -11,8 +11,7 @@
  * Return: exit code
  */
 
-/*char **token == NULL;*/
-
+/*token = {NULL, NULL, NULL, 0};*/
 int main(int argc, char **argv)
 {
 	FILE *filefd = NULL;

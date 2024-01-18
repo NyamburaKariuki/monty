@@ -10,7 +10,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		token_error(pint_error(line_number));
+		token_error(pint_err(line_number));
 		return;
 	}
 	printf("%d\n", (*stack)->n);

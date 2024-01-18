@@ -17,7 +17,7 @@ int _monty(FILE *filefd)
 	unsigned int line_number = 0;
 	unsigned int tok_len = 0;
 
-	if (_init(&stack) == EXIT_FAILURE)
+	if (_initialize(&stack) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	while (getline(&ln, &length, filefd) != -1)
 	{

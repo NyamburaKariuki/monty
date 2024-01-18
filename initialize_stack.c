@@ -4,7 +4,7 @@
  * @stack: pointer to top element of stack
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
-int _init(stack_t **stack)
+int _initialize(stack_t **stack)
 {
 	stack_t *str;
 

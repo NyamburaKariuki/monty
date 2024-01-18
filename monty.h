@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -43,7 +45,7 @@ typedef struct instruction_s
 
 /*More functions */
 char *get_integer(int n);
-int _init(stack_t **stack);
+int _initialize(stack_t **stack);
 void buff(unsigned int n, unsigned int bs, char *buffer, int size);
 unsigned int absolute (int x);
 int baselen(unsigned int n, unsigned int bs);
@@ -67,7 +69,7 @@ int invalid_instruction(char *opcode, unsigned int line_number);
 int nonint_error(unsigned int line_number);
 int malloc_fail(void);
 int args_error(void);
-int pint_error(unsigned int line_number);
+int pint_err(unsigned int line_number);
 int pop_err(unsigned int line_number);
 int division_error(unsigned int line_number);
 int short_stak(unsigned int line_number);
