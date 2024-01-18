@@ -19,8 +19,8 @@ unsigned int _tokenlen(void)
 int op_mode(stack_t *stack)
 {
 	if (stack->n == STACK)
-		return (1);
+		return (STACK);
 	else if (stack->n == QUEUE)
-		return (0);
+		return (QUEUE);
 	return (2);
 }
