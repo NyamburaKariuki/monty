@@ -11,7 +11,7 @@ int get_wc(char *s, char *delim)
 	int p;
 	int x = 0;
 
-	while (*(s + 1))
+	while (*(s + x))
 	{
 		if (_delim(s[x], delim))
 			p = 1;
