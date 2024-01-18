@@ -12,9 +12,9 @@ void add_2_top(stack_t **stack, unsigned int line_number)
 	stack_t *temp;
 
 	(void)line_number;
-	if (*stack == NULL || (*stack->next) == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		token_error(short_stak(line_number));
+		token_error(short_stak(line_number, "sub"));
 		return;
 	}
 	temp = *stack;

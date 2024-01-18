@@ -8,19 +8,19 @@
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
-	stack_t temp;
-	stack_t new;
+	stack_t *temp;
+	stack_t *new;
 	int x;
 
 	new = malloc(sizeof(stack_t));
-	if (!new)
+	if (new == NULL)
 	{
 		token_error(malloc_fail());
 		return;
 	}
-	if (!token[1])
+	if (token[1] == NULL)
 	{
-		token_error(nonint_error(line_number);
+		token_error(nonint_error(line_number));
 		return;
 	}
 	for (x = 0; token[1][x]; x++)
@@ -29,12 +29,12 @@ void _push(stack_t **stack, unsigned int line_number)
 			continue;
 		if (token[1][x] < '0' || token[1][x] > '9')
 		{
-			token_error(nonint(line_number);
+			token_error(nonint_error(line_number));
 			return;
 		}
 	}
 	new->n = atoi(token[1]);
-	if (inspect(*stack) == STACK)
+	if (op_mode(*stack) == STACK)
 	{
 		temp = (*stack)->next;
 		new->prev = *stack;
@@ -50,6 +50,6 @@ void _push(stack_t **stack, unsigned int line_number)
 			temp = temp->next;
 		new->prev = temp;
 		new->next = NULL;
-		temp_next = new;
+		temp->next = new;
 	}
 }

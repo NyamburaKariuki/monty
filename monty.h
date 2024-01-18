@@ -2,13 +2,13 @@
 #define MONTY_H
 
 #include <stdio.h>
-#include <unstd.h>
+#include <unistd.h>
 #include <stdlib.h>
 
 #define delims "\n\a\t\b"
 #define QUEUE 0
 #define STACK 1
-extern char **token
+extern char **token;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,6 +39,26 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/*More functions */
+char *get_integer(int n);
+int _init(stack_t **stack);
+void buff(unsigned int n, unsigned int bs, char *buffer, int size);
+unsigned int absolute (int x);
+int baselen(unsigned int n, unsigned int bs);
+unsigned int _tokenlen(void);
+void _freetoks(void);
+int check_delim(char *ln, char *dm);
+char **_strtow(char *delim, char *s);
+int _delim(char c, char *delim);
+char *get_nw(char *s, char *delim);
+int get_wc(char *s, char *delim);
+int get_wl(char *s, char *delim);
+unsigned int _tokenlen(void);
+int op_mode(stack_t *stack);
+int _monty(FILE *filefd);
+void (*op_functions(char *opcode))(stack_t**, unsigned int);
+void (*op_functions(char *opcode))(stack_t**, unsigned int);
+
 /* ERRORS*/
 int file_openerr(char *filename);
 int invalid_instruction(char *opcode, unsigned int line_number);
@@ -54,7 +74,7 @@ void token_error(int code_error);
 
 /* opcode functions */
 void _pint(stack_t **stack, unsigned int line_number);
-void _pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);

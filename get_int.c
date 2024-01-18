@@ -11,8 +11,8 @@ char *get_integer(int n)
 	long num = 0;
 	char *str;
 
-	x = _absolute(n);
-	l = base_len(x, 10);
+	x = absolute(n);
+	l = baselen(x, 10);
 	if (n < 0 || num < 0)
 		l++;
 	str = malloc(l + 1);

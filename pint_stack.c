@@ -13,5 +13,5 @@ void _pint(stack_t **stack, unsigned int line_number)
 		token_error(pint_error(line_number));
 		return;
 	}
-	fprint(stdout, "%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->n);
 }
