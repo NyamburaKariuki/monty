@@ -2,6 +2,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
+
+/*char **token NULL;*/
 /**
  * main - main entry
  * @argc: number of arguments
@@ -9,7 +11,7 @@
  * Return: exit code
  */
 
-char **token == NULL;
+/*char **token == NULL;*/
 
 int main(int argc, char **argv)
 {
@@ -18,7 +20,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		return (args_error());
-	filefd = fopen(arg[a], "r");
+	filefd = fopen(argv[1], "r");
 	if (filefd == NULL)
 		return (file_openerr(argv[1]));
 	exit_cd = _monty(filefd);

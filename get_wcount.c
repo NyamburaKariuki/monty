@@ -7,7 +7,7 @@
  */
 int get_wc(char *s, char *delim)
 {
-	int wordcount = 0,
+	int wordcount = 0;
 	int p;
 	int x = 0;
 

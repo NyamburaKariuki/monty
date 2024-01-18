@@ -12,7 +12,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		token_error(short_stak(line_number, "swap"));
+		token_error(short_stak(line_number));
 		return;
 	}
 	new = (*stack)->next->next;

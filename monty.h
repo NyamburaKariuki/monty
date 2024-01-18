@@ -4,8 +4,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 
-#define delims "\n\a\t\b"
+#define DELIMS "\n\a\t\b"
 #define QUEUE 0
 #define STACK 1
 extern char **token;
@@ -57,7 +59,7 @@ unsigned int _tokenlen(void);
 int op_mode(stack_t *stack);
 int _monty(FILE *filefd);
 void (*op_functions(char *opcode))(stack_t**, unsigned int);
-void (*op_functions(char *opcode))(stack_t**, unsigned int);
+void _freestack(stack_t **stack);
 
 /* ERRORS*/
 int file_openerr(char *filename);
@@ -68,7 +70,7 @@ int args_error(void);
 int pint_error(unsigned int line_number);
 int pop_err(unsigned int line_number);
 int division_error(unsigned int line_number);
-int short_stak(char *op, unsigned int line_number);
+int short_stak(unsigned int line_number);
 int pchar_err(char *msg, unsigned int line_number);
 void token_error(int code_error);
 

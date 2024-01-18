@@ -1,4 +1,4 @@
-#include "montyii.h"
+#include "monty.h"
 
 /**
  * pint_err - print error message when stack is empty
@@ -36,9 +36,9 @@ int division_error(unsigned int line_number)
  *@op: operation
  * Return: EXIT_FAILURE
  */
-int short_stak(char *op, unsigned int line_number)
+int short_stak(unsigned int line_number)
 {
-	fprintf(stderr, "L%d: can't %S, stack too short\n", line_number, op);
+	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	return (EXIT_FAILURE);
 }
 /**
@@ -49,6 +49,6 @@ int short_stak(char *op, unsigned int line_number)
  */
 int pchar_err(char *msg, unsigned int line_number)
 {
-	fprintf(stderr, "L%d: can't pchar\n", line_number, msg);
+	fprintf(stderr, "L%d: can't pchar, %s\n", line_number, msg);
 	return (EXIT_FAILURE);
 }
