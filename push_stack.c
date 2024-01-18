@@ -39,14 +39,14 @@ void _push(stack_t **stack, unsigned int line_number)
 		temp = (*stack)->next;
 		new->prev = *stack;
 		new->next = temp;
-		if (temp != NULL)
+		if (temp)
 			temp->next = new;
 		(*stack)->next = new;
 	}
 	else
 	{
 		temp = *stack;
-		while (temp->next == NULL)
+		while (temp->next)
 			temp = temp->next;
 		new->prev = temp;
 		new->next = NULL;
