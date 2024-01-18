@@ -7,15 +7,15 @@
  */
 void _pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *temp = NULL;
 
-	if (*stack == NULL)
+	if ((*stack)->next == NULL)
 	{	token_error(pop_err(line_number));
 		return;
 	}
 	temp = (*stack)->next->next;
 	free((*stack)->next);
-	if (temp == NULL)
+	if (temp)
 		temp->prev = *stack;
 	(*stack)->next = temp;
 }

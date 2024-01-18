@@ -12,7 +12,7 @@ void _pall(stack_t **stack,	unsigned int line_number)
 	stack_t *temp = (*stack)->next;
 
 	/*when stack is not empty*/
-	while (stack != NULL)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		/*traverse to next node*/
