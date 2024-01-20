@@ -8,7 +8,7 @@
  */
 void _pint(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		fclose(busy.file);
@@ -16,5 +16,5 @@ void _pint(stack_t **stack, unsigned int line_number)
 		_freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->next->n);
+	printf("%d\n", (*stack)->n);
 }
