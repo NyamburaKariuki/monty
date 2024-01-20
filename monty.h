@@ -79,11 +79,8 @@ void _rotb(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void _divide(stack_t **stack, unsigned int line_number);
 
 void _freestack(stack_t *stack);
-void ifqueue(stack_t **stack, unsigned int line_number);
 void _addq(stack_t **stack, int n);
 void ifqueue(stack_t **stack, unsigned int line_number);
 void ifstack(stack_t **stack, unsigned int line_number);
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
 int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FILE *file);
 #endif

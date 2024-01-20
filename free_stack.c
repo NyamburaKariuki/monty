@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
- * _freestack - prints all elements of a stack
- * @stack: poiner to the top element
+ * _freestack - Frees stack
+ * @stack: poiner to thi top element
  * Return: void
  */
 void _freestack(stack_t *stack)
