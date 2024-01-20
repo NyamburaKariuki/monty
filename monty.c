@@ -20,6 +20,7 @@ int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FIL
 		{"queue", ifqueue},
 		{"stack", ifstack},
 		{"mul", _multiply2},
+		{"mod", _modulus},
 		{NULL, NULL}
 	};
 	unsigned int x = 0;
