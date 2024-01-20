@@ -19,7 +19,7 @@ void _multiply2(stack_t **stack, unsigned int line_number)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(busy.file);
 		free(busy.linecontent);
 		_freestack(*stack);
