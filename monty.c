@@ -23,6 +23,7 @@ int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FIL
 		{"mod", _modulus},
 		{"pstr", _fstr},
 		{"pchar", _pchar},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 	unsigned int x = 0;
