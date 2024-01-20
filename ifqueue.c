@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * pushnew - add a new element  at the top of stack
+ * ifqueue - check if stack is queue
  * @line_number: line number
  * @stack: pointer to top element of stack
  * Return: nothing

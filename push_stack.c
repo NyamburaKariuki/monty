@@ -10,6 +10,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	int x, y = 0;
 	int fl = 0;
+
 	if (busy.args)
 	{
 		if (busy.args[0] == '-')
