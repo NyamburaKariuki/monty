@@ -68,6 +68,7 @@ void _swap(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 void add_2_top(stack_t **stack, unsigned int line_number);
 void _addn(stack_t **stack, int n);
+void _multiply2(stack_t **stack, unsigned int line_number);
 
 void _freestack(stack_t *stack);
 void ifqueue(stack_t **stack, unsigned int line_number);
