@@ -58,6 +58,7 @@ typedef struct busy_s
 	char *linecontent;
 	int lift;
 }  busy_t;
+
 extern busy_t busy;
 
 void _pint(stack_t **stack, unsigned int line_number);
@@ -75,11 +76,14 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
 void _rotb(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void _divide(stack_t **stack, unsigned int line_number);
 
 void _freestack(stack_t *stack);
 void ifqueue(stack_t **stack, unsigned int line_number);
 void _addq(stack_t **stack, int n);
 void ifqueue(stack_t **stack, unsigned int line_number);
 void ifstack(stack_t **stack, unsigned int line_number);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
 int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FILE *file);
 #endif
