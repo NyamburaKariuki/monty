@@ -24,6 +24,7 @@ int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FIL
 		{"pstr", _fstr},
 		{"pchar", _pchar},
 		{"sub", _sub},
+		{"rotl", _rotl},
 		{NULL, NULL}
 	};
 	unsigned int x = 0;

@@ -71,8 +71,10 @@ void _addn(stack_t **stack, int n);
 void _multiply2(stack_t **stack, unsigned int line_number);
 void _modulus(stack_t **stack, unsigned int line_number);
 void _fstr(stack_t **stack, unsigned int line_number);
+void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
+
 void _freestack(stack_t *stack);
 void ifqueue(stack_t **stack, unsigned int line_number);
 void _addq(stack_t **stack, int n);

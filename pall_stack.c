@@ -9,8 +9,12 @@
 
 void _pall(stack_t **stack,	unsigned int line_number)
 {
-	stack_t *temp = (*stack)->next;
+	stack_t *temp;
+	(void)line_number;
 
+	temp = *stack;
+	if (temp == NULL)
+		return;
 	/*when stack is not empty*/
 	while (temp)
 	{
@@ -18,5 +22,4 @@ void _pall(stack_t **stack,	unsigned int line_number)
 		/*traverse to next node*/
 		temp = temp->next;
 	}
-	(void)line_number;
 }
