@@ -29,5 +29,5 @@ void _multiply2(stack_t **stack, unsigned int line_number)
 	i = temp->next->n * temp->n;
 	temp->next->n = i;
 	*stack = temp->next;
-	free(temp)
+	free(temp);
 }
