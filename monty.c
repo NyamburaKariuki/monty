@@ -1,70 +1,49 @@
 #include "monty.h"
-#include <string.h>
-#include <stdio.h>
 /**
- * pushnew - add a new element  at the top of stack
+ * _montyexec - execute the desired op code
+ * @linecontent: content of the line
+ * @stack: pointer to top element in stack
+ * @file: pointer to monty file
  * @line_number: line number
- * @stack: pointer to top element of stack
  * Return: nothing
  */
-int _monty(FILE *filefd)
-{	
-	stack_t *stack = NULL;
-	size_t length = 0;
-	size_t exit_st = EXIT_SUCCESS;
-	char *ln = NULL;
-	void (*func)(stack_t**, unsigned int);
-	unsigned int line_number = 0;
-	unsigned int tok_len = 0;
+int _montyexec(char *linecontent, stack_t **stack, unsigned int line_number, FILE *file)
+{
+	instruction_t opfunc[] = {
+		{"push", _push},
+		{"pall", _pall},
+		{"pint", _pint},
+		{"pop", _pop},
+		{"swap", _swap},
+		{"add", add_2_top},
+		{"nop", _nop},
+		{"queue", ifqueue},
+		{"stack", ifstack},
+		{NULL, NULL}
+	};
+	unsigned int x = 0;
+	char *ops;
 
-	if (_initialize(&stack) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	while (getline(&ln, &length, filefd) != -1)
+	ops = strtok(linecontent, " \n\t");
+	if (ops && ops[0] == '#')
+		return (0);
+	busy.args = strtok(NULL, " \n\t");
+	while (opfunc[x].opcode && ops)
 	{
-		line_number++;
-		token = _strtow(ln, DELIMS);
-		if (token == NULL)
+		if (strcmp(ops, opfunc[x].opcode) == 0)
 		{
-			if (check_delim(ln, DELIMS))
-				continue;
-			_freestack(&stack);
-			return (malloc_fail());
+			opfunc[x].f(stack, line_number);
+			return (0);
 		}
-		else if (token[0][0] == '#')
-		{
-			_freetoks();
-			continue;
-		}
-		func = op_functions(token[0]);
-		if (func == NULL)
-		{
-			_freestack(&stack);
-			exit_st = invalid_instruction(token[0], line_number);
-			_freetoks();
-			break;
-		}
-		tok_len = _tokenlen();
-		func(&stack, line_number);
-		if (_tokenlen() != tok_len)
-		{	
-			if (token && token[tok_len])
-				exit_st = atoi(token[tok_len]);
-			else
-			{
-				exit_st = EXIT_FAILURE;
-				_freetoks();
-				break;
-			}
-		}
-		_freetoks();
+		x++;
 	}
-	_freestack(&stack);
-	if (ln && *ln == 0)
-	{	
-		free(ln);
-		return (malloc_fail());
+	if (ops && opfunc[x].opcode == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, ops);
+		fclose(file);
+		free(linecontent);
+		_freestack(*stack);
+		exit(EXIT_FAILURE);
 	}
-	free(ln);
-	return (exit_st);
+	return (1);
 }
-

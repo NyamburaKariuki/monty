@@ -8,19 +8,26 @@
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
+	int length = 0;
+	int i;
 	stack_t *new;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	new = *stack;
+	while (new != NULL)
 	{
-		token_error(short_stak(line_number));
-		return;
+		new = new->next;
+		length++;
 	}
-	new = (*stack)->next->next;
-	(*stack)->next->next = new->next;
-	(*stack)->next->prev = new;
-	if (new->next)
-		new->next->prev = (*stack)->next;
-	new->next = (*stack)->next;
-	new->prev = *stack;
-	(*stack)->next = new;
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fclose(busy.file);
+		free(busy.linecontent);
+		_freestack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	new = *stack;
+	i = new->n;
+	new->n = new->next->n;
+	new->next->n = i;
 }

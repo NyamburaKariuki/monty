@@ -9,17 +9,28 @@
  */
 void add_2_top(stack_t **stack, unsigned int line_number)
 {
+	int length = 0;
+	int i;
 	stack_t *temp;
 
-	(void)line_number;
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		token_error(short_stak(line_number));
-		return;
-	}
 	temp = *stack;
-	temp->next->n += temp->n;
-	temp->next->prev = NULL;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fclose(busy.file);
+		free(busy.linecontent);
+		_freestack(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	i = temp->n + temp->next->n;
+	temp->next->n = i;
 	*stack = temp->next;
 	free(temp);
 }

@@ -4,14 +4,15 @@
  * @stack: poiner to the top element
  * Return: void
  */
-void _freestack(stack_t **stack)
+void _freestack(stack_t *stack)
 {
-	stack_t *new = *stack;
+	stack_t *new;
 
-	while (*stack)
+	new = stack;
+	while (stack)
 	{
-		new = (*stack)->next;
-		free(*stack);
-		*stack = new;
+		new = stack->next;
+		free(stack);
+		stack = new;
 	}
 }
